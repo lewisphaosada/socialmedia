@@ -3,7 +3,7 @@ Assessment 1
 
 ## Overview
 
-Setup postgresql and run the application
+Setup postgresql and run the application. Spring boot/onion architecture
 
 30 API endpoints to test and implement a robust and feature rich twitter mockup.
 
