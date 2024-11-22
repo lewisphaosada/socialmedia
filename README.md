@@ -3,7 +3,7 @@ Assessment 1
 
 ## Overview
 
-Setup postgresql and run the application. Spring boot/onion architecture. A seeder and postman collection test is provided to test some mock data.
+Setup postgresql, go to the twittermockup folder, and run the application. Spring boot/onion architecture. A seeder and postman collection test is provided to test some mock data.
 
 30 API endpoints to test and implement a robust and feature rich twitter mockup.
 
