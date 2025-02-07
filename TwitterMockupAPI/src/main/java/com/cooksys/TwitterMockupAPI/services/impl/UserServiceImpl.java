@@ -59,15 +59,17 @@ public UserResponseDto createUser(UserRequestDto userRequestDto){
 //    userCreds.setPassword(userRequestDto.getCredentials().getPassword());
     Optional<User> existingUser = userRepository.findByCredentials(credentialsMapper.dtoToEntity(userRequestDto.getCredentials()));
 
-    if(existingUser.isPresent()){
+  if(existingUser.isPresent()) {
         createdUser = existingUser.get();
-        createdUser.setDeleted(false);
+
+        if (createdUser.isDeleted()) {
+            createdUser.setDeleted(false);
+            userRepository.saveAndFlush(createdUser);
+        } else {
+            throw new BadRequestException("User already exists");
+        }
     } else {
         createdUser = userMapper.requestDtoToEntity(userRequestDto);
-    }
-
-    if(existingUser.isPresent()){
-        throw new BadRequestException("User already exists");
     }
 
 
